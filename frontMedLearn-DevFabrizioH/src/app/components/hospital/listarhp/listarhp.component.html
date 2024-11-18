@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="lista">
+    <div class="filtro">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keydown)="onKeydown($event)" placeholder="Ex. hospital" #input>
+      </mat-form-field>
+      <button mat-button (click)="clearFilter(input)">Clear</button>
+    </div>
+
+    <mat-card *ngFor="let hospital of datasource" class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{ hospital.nameHospital }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ hospital.addressHospital }}</p>
+        <p>{{ hospital.contactHospital }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="onCardClick(hospital)">Mostrar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="map-container">
+    <div id="map" style="height: 100%; width: 100%;"></div>
+  </div>
+</div>

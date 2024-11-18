@@ -1,0 +1,27 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%">
+    <h1>Lista de Medicinas</h1>
+  </div>
+  <div class="card-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <mat-card *ngFor="let element of datasource.data" class="card" style="width: 300px; box-shadow: 0px 2px 5px rgba(0,0,0,0.2);">
+      <mat-card-header>
+        <button mat-raised-button style="background-color: #4CAF50; color: white; margin-right: 5px;"
+                [routerLink]="['edicionesmed', element.idMedicine]" class="edit-btn">
+          Editar
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-raised-button style="background-color: #F44336; color: white;"
+                (click)="delete(element.idMedicine)" class="delete-btn">
+          Eliminar
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-title>{{ element.nameMedicine }}</mat-card-title>
+        <p><strong>Código:</strong> {{ element.idMedicine }}</p>
+        <p><strong>Descripción:</strong> {{ element.descriptionMedicine }}</p>
+        <p><strong>Tratamiento:</strong> {{ element.treatment.descriptionTreatment }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

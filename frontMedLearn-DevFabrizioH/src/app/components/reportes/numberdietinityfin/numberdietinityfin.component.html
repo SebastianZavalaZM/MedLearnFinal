@@ -1,0 +1,32 @@
+<div class="title-container">
+    <div style="text-align: center" class="title">
+      <h1>Lista de reportes de dietas</h1>
+    </div>
+    <div class="horizontal-chart-container">
+      <!-- Gráfico de dietas iniciadas -->
+      <div class="chart-wrapper">
+        <h2>Cantidad de dietas iniciadas</h2>
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType"
+        ></canvas>
+      </div>
+  
+      <!-- Gráfico de dietas finalizadas -->
+      <div class="chart-wrapper">
+        <h2>Cantidad de dietas finalizadas</h2>
+        <canvas
+          baseChart
+          [datasets]="barChartData1"
+          [labels]="barChartLabels1"
+          [options]="barChartOptions1"
+          [legend]="barChartLegend1"
+          [type]="barChartType1"
+        ></canvas>
+      </div>
+    </div>
+  </div>

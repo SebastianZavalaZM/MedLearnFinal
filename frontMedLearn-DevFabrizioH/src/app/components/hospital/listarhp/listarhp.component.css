@@ -1,0 +1,37 @@
+/* listarhp.component.css */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.lista {
+  width: 30%;
+  background-color: #f8f9fa;
+  padding: 1%;
+  overflow-y: auto;
+}
+
+.map-container {
+  width: 70%;
+  padding: 1%;
+}
+
+.example-card {
+  margin-bottom: 5%;
+  cursor: pointer; /* Cambia el cursor para indicar que es clicable */
+}
+
+.filtro {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+.filtro mat-form-field {
+  flex: 1;
+  margin-right: 5%;
+}
+
+.filtro button {
+  margin-bottom: 5%;
+}

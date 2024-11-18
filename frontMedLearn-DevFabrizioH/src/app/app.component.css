@@ -1,0 +1,53 @@
+.custom-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgba(25, 219, 138, 1); /* Puedes cambiarlo por el color que prefieras */
+    color: white;
+}
+
+.menu-icon {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.toolbar-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    flex-grow: 1; /* Hace que el título ocupe el espacio disponible */
+    color: white;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.menu-button mat-icon {
+    margin-right: 5px;
+}
+
+.mat-menu-item mat-icon {
+    margin-right: 10px;
+}
+
+.mat-menu-item span {
+    font-size: 1em;
+}
+
+.logoIcon{
+  width: 10vw; /* La imagen ocupará el 10% del ancho de la pantalla */
+  max-width: 40px; /* Tamaño máximo de 40px */
+  height: auto; /* Mantiene la proporción */
+  margin-right: 8px;
+}
+
+.espacio{
+  flex: 1 1 auto;
+}

@@ -1,0 +1,20 @@
+<div class="title-container">
+    <div style="text-align: center" class="title">
+      <h1>Lista de reportes de dietas</h1>
+    </div>
+    <div class="horizontal-chart-container">
+      <!-- Gráfico de proporcion de Usuarios -->
+      <div class="chart-wrapper">
+        <h1>Proporción de Usuarios en la App</h1>
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType"
+        ></canvas>
+      </div>
+
+    </div>
+  </div>

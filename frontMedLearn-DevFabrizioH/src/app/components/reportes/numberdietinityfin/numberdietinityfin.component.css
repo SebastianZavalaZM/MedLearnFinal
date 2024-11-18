@@ -1,0 +1,52 @@
+/* Contenedor principal */
+.title-container {
+    padding: 20px;
+    background-color: #22d28c;
+    border-radius: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+  }
+  
+  /* Título */
+  .title h1 {
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Contenedor para gráficos en disposición horizontal */
+  .horizontal-chart-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px 0;
+    flex-wrap: wrap; /* Ajuste en pantallas pequeñas */
+  }
+  
+  /* Contenedor individual para cada gráfico */
+  .chart-wrapper {
+    width: 45%; /* Ambos gráficos ocupan el mismo espacio */
+    min-width: 300px; /* Tamaño mínimo para pantallas pequeñas */
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .chart-wrapper h2 {
+    font-size: 1.2em;
+    color: #22d28c;
+    margin-bottom: 10px;
+  }
+  
+  .chart-wrapper canvas {
+    width: 100% !important; /* Asegura que los gráficos ocupen el ancho completo del contenedor */
+    height: 250px !important; /* Altura fija para mantener la uniformidad */
+    border-radius: 10px;
+  }

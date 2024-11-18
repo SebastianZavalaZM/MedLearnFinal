@@ -1,0 +1,65 @@
+<div class="title-container">
+  <div class="container" style="text-align: center; margin: 2%">
+    <h1>Registro de cantidad</h1>
+  </div>
+  <div class="container" style="text-align: center">
+
+    <form [formGroup]="form" (submit)="insertar()">
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>codigo</mat-label>
+        <input matInput formControlName="codigo" readonly="true"/>
+      </mat-form-field>
+
+      <br/>
+      <mat-form-field class="example-full-width">
+        <mat-label>cantidad</mat-label>
+        <input matInput formControlName="cantidad"/>
+      </mat-form-field>
+
+      <br/>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>medicna</mat-label>
+        <mat-select formControlName="medicina">
+          <mat-option *ngFor="let n of listaMedicinas" [value]="n ">
+            {{ n.nameMedicine }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('htipo')?.hasError('required')"
+        >El tipo es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+        <br/>
+      <mat-form-field class="example-full-width">
+        <mat-label>comida</mat-label>
+        <mat-select formControlName="comida">
+          <mat-option *ngFor="let n of listaComida" [value]="n ">
+            {{ n.nameFood }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('htipo')?.hasError('required')"
+        >El tipo es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+      <br/>
+      <mat-form-field class="example-full-width">
+        <mat-label>ejericicos</mat-label>
+        <mat-select formControlName="ejercicio">
+          <mat-option *ngFor="let n of ListaEjercicios" [value]="n ">
+            {{ n.nameExercise }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('htipo')?.hasError('required')"
+        >El tipo es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+      <div style="text-align: center;">
+        <button mat-flat-button type="submit" color="warn">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>

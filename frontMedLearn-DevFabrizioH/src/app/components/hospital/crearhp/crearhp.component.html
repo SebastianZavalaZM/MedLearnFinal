@@ -1,0 +1,44 @@
+<div class="title-container">
+  <div class="container form-container">
+    <div class="container" style="text-align: center; margin: 5%;">
+      <h3>Registrar ubicación de trabajo</h3>
+    </div>
+    <form [formGroup]="form" (submit)="agregar()">
+
+      <mat-form-field class="example-full-width">
+      <mat-label>Nombre del Hospital</mat-label>
+      <input type="text" placeholder="Pick one" matInput formControlName="hnameHospital" [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let h of listaHospitales" [value]="h.nameHospital">
+          {{h.nameHospital}}
+        </mat-option>
+      </mat-autocomplete>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Dirección</mat-label>
+        <input #inputField matInput [placeholder]="placeholder" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Contacto</mat-label>
+        <span matTextPrefix>+51  </span>
+        <input formControlName="hcontactHospital" type="tel" matInput placeholder="555-555-123">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="form.get('hpassword')?.hasError('required')">
+          Campo obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('hpassword')?.hasError('minlength')">
+          El campo debe tener 9 caracteres.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <div style="text-align: center;">
+        <button mat-flat-button color="primary">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

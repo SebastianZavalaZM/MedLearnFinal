@@ -1,0 +1,76 @@
+/* Contenedor principal */
+.title-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 90vw; /* Limita el ancho a un 90% del viewport */
+  background-color: #f0f0f0; /* Gris claro */
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.title-container .title {
+  text-align: center;
+  color: #000000; /* Negro */
+}
+
+.title-container h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00e676; /* Verde */
+  margin-bottom: 1.5rem;
+}
+
+/* Contenedor del gráfico */
+.horizontal-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Contenedor individual del gráfico */
+.chart-wrapper {
+  width: 100%;
+  max-width: 50rem; /* Limita el ancho máximo en pantallas grandes */
+  padding: 1.5rem;
+  background-color: #ffffff; /* Blanco */
+  border: 0.1rem solid #cccccc; /* Gris claro */
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
+}
+
+.chart-wrapper h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #006400; /* Verde oscuro */
+  margin-bottom: 1rem;
+}
+
+/* Estilo del canvas del gráfico */
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 40vh; /* Altura máxima del gráfico en función de la altura del viewport */
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 48rem) {
+  .title-container {
+    padding: 1.5rem;
+  }
+
+  .chart-wrapper {
+    max-width: 100%; /* Ocupa el ancho completo en pantallas pequeñas */
+    padding: 1rem;
+  }
+
+  .title-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .chart-wrapper h2 {
+    font-size: 1.2rem;
+  }
+}

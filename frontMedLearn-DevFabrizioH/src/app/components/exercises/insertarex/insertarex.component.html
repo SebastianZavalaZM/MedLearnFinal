@@ -1,0 +1,60 @@
+<div class="title-container">
+  <!-- Título según el modo -->
+  <div class="container" style="text-align: center; margin: 5%;">
+    <h1 *ngIf="!edicion">Registro de Ejercicio</h1>
+    <h1 *ngIf="edicion">Edición de Ejercicio</h1>
+  </div>
+
+  <!-- Formulario -->
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="insertar()">
+      <!-- Campo: Nombre -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Nombre del ejercicio"
+          formControlName="name"
+        />
+        <mat-error *ngIf="form.get('name')?.invalid">Este campo es obligatorio.</mat-error>
+      </mat-form-field>
+
+      <!-- Campo: Sets -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Series</mat-label>
+        <input
+          matInput
+          placeholder="Cantidad de series"
+          formControlName="sets"
+        />
+        <mat-error *ngIf="form.get('sets')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('sets')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <!-- Campo: Dieta -->
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Dieta</mat-label>
+        <mat-select formControlName="diet">
+          <mat-option *ngFor="let dieta of listaDietas" [value]="dieta.idDiet">
+            {{ dieta.descriptionDiet }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('diet')?.invalid">Debe seleccionar una dieta.</mat-error>
+      </mat-form-field>
+
+
+      <!-- Botones -->
+      <div style="text-align: center; margin-top: 20px;">
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="router.navigate(['Ejercicios'])"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

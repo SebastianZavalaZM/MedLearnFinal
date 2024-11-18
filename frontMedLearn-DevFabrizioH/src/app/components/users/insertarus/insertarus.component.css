@@ -1,0 +1,199 @@
+/* Colores base */
+:root {
+  --primary-color: #00e676; /* Verde del menú */
+  --secondary-color: #000000; /* Negro */
+  --text-color: #ffffff; /* Blanco */
+  --background-color: #f0f0f0; /* Gris claro */
+}
+
+/* Estilos generales */
+body {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  font-family: Arial, sans-serif;
+}
+
+.custom-toolbar {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.website-name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.espacio {
+  flex: 1;
+}
+
+/* Botones del menú */
+.mat-button {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.mat-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.title-container h1 {
+  color: var(--secondary-color);
+  text-align: center;
+  margin: 5% 0;
+}
+
+/* Formularios */
+.container {
+  background-color: var(--text-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor flex para dividir el espacio en dos columnas */
+.flex-container {
+  display: flex;
+  gap: 20px; /* Espacio entre las columnas */
+}
+
+.half-container {
+  flex: 1; /* Cada columna ocupa el 50% del contenedor */
+}
+
+/* Estilo del campo de entrada */
+.example-full-width {
+  width: 100%; /* El campo de entrada ocupa el ancho completo de su contenedor */
+}
+
+/* Responsividad: en pantallas pequeñas, las columnas se apilan */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+/* ======= Estilos específicos para los botones del Step 2 ======= */
+
+/* Contenedor de los botones en el Step 2 */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espacio entre los botones */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ======= Estilos específicos para los botones del Step 2 ======= */
+
+/* Contenedor de los botones en el Step 2 */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espacio entre los botones */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ======= Estilos específicos para los botones del Step 2 ======= */
+
+/* Contenedor de los botones en el Step 2 */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espacio entre los botones */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ======= Estilos específicos para los botones del Step 2 ======= */
+
+/* Contenedor de los botones en el Step 2 */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espacio entre los botones */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Botones cuadrados en el Step 2 */
+.square-button {
+  flex: 1; /* Cada botón ocupa el mismo espacio, distribuyendo el ancho */
+  height: 120px; /* Aumenta la altura del botón para dar más espacio */
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Coloca el icono encima del texto */
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  gap: 5px; /* Espacio entre el icono y el texto */
+
+  /* Ajuste de altura del texto */
+  font-size: 1.1em; /* Tamaño del texto */
+  line-height: 1.2em; /* Asegura que el texto no se recorte */
+}
+
+/* Ajuste del tamaño del ícono */
+.square-button mat-icon {
+  font-size: 36px; /* Tamaño específico del icono */
+  height: 36px;
+  width: 36px;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Ajustes de responsividad para el Step 2 */
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .square-button {
+    width: 100%; /* Cada botón ocupa el ancho completo en pantallas pequeñas */
+    margin-bottom: 10px; /* Espacio entre botones en vista móvil */
+  }
+}
+
+.file-drop-area {
+  width: 100%;
+  max-width: 500px; /* Limita el ancho máximo para que sea más corto en pantallas grandes */
+  margin: 0 auto; /* Centra el área en la pantalla */
+  padding: 20px;
+  border: 2px dashed #cccccc;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-drop-area.drag-over {
+  background-color: #f0f0f0;
+}
+
+.preview-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+

@@ -1,0 +1,95 @@
+<div class="title-container">
+  <!-- Título según el modo -->
+  <div class="container" style="text-align: center; margin: 5%;">
+    <h1 *ngIf="!edicion">Registro de Alimento</h1>
+    <h1 *ngIf="edicion">Edición de Alimento</h1>
+  </div>
+
+  <!-- Formulario -->
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="insertar()">
+      <!-- Campo: Nombre -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre del alimento" formControlName="name" />
+        <mat-error *ngIf="form.get('name')?.invalid">Este campo es obligatorio.</mat-error>
+      </mat-form-field>
+
+      <!-- Campo: Porción -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Porción</mat-label>
+        <input matInput placeholder="Cantidad de porción" formControlName="portion" />
+        <mat-error *ngIf="form.get('portion')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('portion')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <!-- Campo: Tipo de cantidad -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo de Cantidad</mat-label>
+        <input matInput placeholder="Ejemplo: gramos, ml" formControlName="typeQuantity" />
+        <mat-error *ngIf="form.get('typeQuantity')?.invalid">Campo obligatorio.</mat-error>
+      </mat-form-field>
+
+      <!-- Campos: Proteínas, Grasas, Carbohidratos -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Proteínas</mat-label>
+        <input matInput placeholder="Cantidad de proteínas" formControlName="proteins" />
+        <mat-error *ngIf="form.get('proteins')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('proteins')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Grasas</mat-label>
+        <input matInput placeholder="Cantidad de grasas" formControlName="fats" />
+        <mat-error *ngIf="form.get('fats')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('fats')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Carbohidratos</mat-label>
+        <input matInput placeholder="Cantidad de carbohidratos" formControlName="carbohydrates" />
+        <mat-error *ngIf="form.get('carbohydrates')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('carbohydrates')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <!-- Campos: Fibra, Colesterol, Sodio -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Fibra</mat-label>
+        <input matInput placeholder="Cantidad de fibra" formControlName="fiber" />
+        <mat-error *ngIf="form.get('fiber')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('fiber')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Colesterol</mat-label>
+        <input matInput placeholder="Cantidad de colesterol" formControlName="cholesterol" />
+        <mat-error *ngIf="form.get('cholesterol')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('cholesterol')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Sodio</mat-label>
+        <input matInput placeholder="Cantidad de sodio" formControlName="sodium" />
+        <mat-error *ngIf="form.get('sodium')?.hasError('required')">Campo obligatorio.</mat-error>
+        <mat-error *ngIf="form.get('sodium')?.hasError('pattern')">Debe ser un número.</mat-error>
+      </mat-form-field>
+
+      <!-- Campo: Dieta -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Dieta</mat-label>
+        <mat-select formControlName="diet">
+          <mat-option *ngFor="let dieta of listaDietas" [value]="dieta.idDiet">
+            {{ dieta.descriptionDiet }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('diet')?.invalid">Debe seleccionar una dieta.</mat-error>
+      </mat-form-field>
+
+      <!-- Botones -->
+      <div style="text-align: center; margin-top: 20px;">
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <button mat-raised-button color="warn" (click)="router.navigate(['Alimentos'])">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

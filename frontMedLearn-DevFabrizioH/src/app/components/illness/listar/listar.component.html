@@ -1,0 +1,41 @@
+<div class="container">
+  <div style="text-align: center;margin: 1%;" class="title-container h1"> <h1 >Lista de enfermedades</h1> </div>
+   
+    <div class="card-container">
+      <mat-card *ngFor="let element of datasource.data" class="card">
+          <mat-card-header>
+            <button mat-raised-button color="primary" [routerLink]="['edicionesenf',element.idIllness]" class="edit-btn" style="margin-right: 5px;">
+              Editar
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-raised-button color="warn" (click)="eliminar(element.idIllness)" class="delete-btn">
+              Eliminar
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-header>
+          <mat-card-content>
+          <div *ngIf="element.imageIllness">
+            <img mat-card-image [src]="(element.imageIllness)" alt="Imagen de {{ element.nameIllness }}" class="card-image" />
+            </div>
+          </mat-card-content>
+      
+          <mat-card-content>
+          <mat-card-title>{{ element.nameIllness }}</mat-card-title>
+          <p><strong>Descripción:</strong></p>
+          <p>{{ element.descriptionIllness }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" [routerLink]="['/Dietas', element.idIllness]">
+              Ver más
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  
+
+   
+   
+   
+   

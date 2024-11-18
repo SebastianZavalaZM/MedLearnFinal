@@ -1,0 +1,84 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%;">
+    <h1>Lista de Alimentos</h1>
+  </div>
+
+  <div>
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.idFood}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nameFood}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef> Porción </th>
+        <td mat-cell *matCellDef="let element"> {{element.portionFood}} {{element.typeQuantityFood}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef> Proteínas </th>
+        <td mat-cell *matCellDef="let element"> {{element.proteinsFood}} g </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef> Grasas </th>
+        <td mat-cell *matCellDef="let element"> {{element.fatsFood}} g </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef> Carbohidratos </th>
+        <td mat-cell *matCellDef="let element"> {{element.carbohydratesFood}} g </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef> Fibra </th>
+        <td mat-cell *matCellDef="let element"> {{element.fiberFood}} g </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c8">
+        <th mat-header-cell *matHeaderCellDef> Colesterol </th>
+        <td mat-cell *matCellDef="let element"> {{element.cholesterolFood}} mg </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c9">
+        <th mat-header-cell *matHeaderCellDef> Sodio </th>
+        <td mat-cell *matCellDef="let element"> {{element.sodiumFood}} mg </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c10">
+        <th mat-header-cell *matHeaderCellDef> Tipo de Medicion </th>
+        <td mat-cell *matCellDef="let element"> {{element.typeQuantityFood}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c11">
+        <th mat-header-cell *matHeaderCellDef> Dieta </th>
+        <td mat-cell *matCellDef="let element"> {{element.diet?.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion01">
+        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+        <td mat-cell *matCellDef="let element" (click)="eliminar(element.idFood)">
+          <mat-icon style="color: #3b1d9e">delete</mat-icon>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion02">
+        <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button [routerLink]="['edicionesfd', element.idFood]">
+            <mat-icon style="color: #3b1d9e">edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

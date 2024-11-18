@@ -1,0 +1,109 @@
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">
+  <img src="images/logoicon.png" alt="logoicon" class="logoIcon">
+  <span class="website-name">MedLearn</span>
+  <span class="espacio"></span>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menuEnfermedad" style="color: white">
+      <mat-icon>healing</mat-icon> Enfermedad
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuMedicinas" style="color: white">
+      Medicinas
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuDietas" style="color: white" *ngIf="isNutricionista()">
+      <mat-icon>restaurant</mat-icon> Dietas
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuUsuarios" style="color: white" *ngIf="isAdmin()">
+      <mat-icon>people</mat-icon> Usuarios
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuTratamientos" style="color: white">
+      Tratamientos
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="menuReportes" style="color: white">
+      <mat-icon>assessment</mat-icon> Reportes
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuhistorial" style="color: white" *ngIf="isPaciente()">
+      <mat-icon>assessment</mat-icon> Historial
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuExercices" style="color: white">
+      <mat-icon>directions_run</mat-icon>Ejercicios
+    </button>
+    <button mat-button [matMenuTriggerFor]="menuFoods" style="color: white">
+      <mat-icon>fastfood</mat-icon>Alimentos
+    </button>
+  </div>
+  <div class="right-menu">
+    <button mat-button [matMenuTriggerFor]="menuSalir" style="color: white">
+      <mat-icon>person</mat-icon>{{ username }}
+    </button>
+  </div>
+</mat-toolbar>
+
+<!-- Menús no requieren cambios adicionales -->
+<mat-menu #menuEnfermedad="matMenu">
+  <button mat-menu-item routerLink="/Enfermedades">Listar</button>
+  <button mat-menu-item routerLink="/Enfermedades/nuevoenf">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuDietas="matMenu">
+  <button mat-menu-item routerLink="/Dietas">Listar</button>
+  <button mat-menu-item routerLink="/Dietas/nuevodt">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuMedicinas="matMenu">
+  <button mat-menu-item routerLink="/Medicinas">Listar</button>
+  <button mat-menu-item routerLink="/Medicinas/nuevomed">Registrar</button>
+</mat-menu>
+
+
+
+<router-outlet></router-outlet>
+
+<mat-menu #menuUsuarios="matMenu">
+  <button mat-menu-item routerLink="/Usuarioss">Listar</button>
+</mat-menu>
+
+<mat-menu #menuHospitales="matMenu">
+  <button mat-menu-item routerLink="/Hospitales" *ngIf="isPaciente()">Listar</button>
+</mat-menu>
+
+<mat-menu #menuReportes="matMenu">
+  <button mat-menu-item routerLink="/reportes/numberdietinityfinal">Reporte de dietas</button>
+  <button mat-menu-item routerLink="/reportes/proportionusers" *ngIf="isAdmin()">Proporción de Usuarios</button>
+  <button mat-menu-item routerLink="/reportes/totalcaloriaspordieta" *ngIf="isPaciente()">Total calorias por Dieta</button>
+  <button mat-menu-item routerLink="/reportes/totalejerciciospordieta" *ngIf="isPaciente()">Total ejercicios por Dieta</button>
+  <button mat-menu-item routerLink="/reportes/reportetratamientosporenfermedad">Tratamientos por enfermedad</button>
+  <button mat-menu-item routerLink="/reportes/promedioduraciontratamiento">Reporte de promedio tratamientos</button>
+</mat-menu>
+
+<mat-menu #menuhistorial="matMenu">
+  <button mat-menu-item [routerLink]="['historial', iduser]" >Historial</button>
+</mat-menu>
+
+<mat-menu #menuFoods="matMenu">
+  <button mat-menu-item routerLink="/Alimentos">Listar</button>
+  <button mat-menu-item routerLink="/Alimentos/nuevofd">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuExercices="matMenu">
+  <button mat-menu-item routerLink="/Ejercicios">Listar</button>
+  <button mat-menu-item routerLink="/Ejercicios/nuevoex">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuTratamientos="matMenu">
+  <button mat-menu-item routerLink="/Tratamientoss">Listar</button>
+  <button mat-menu-item routerLink="/Tratamientoss/nuevotr">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol:
+    <span>{{ role }}</span>
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>

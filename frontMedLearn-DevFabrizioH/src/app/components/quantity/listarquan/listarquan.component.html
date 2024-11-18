@@ -1,0 +1,16 @@
+<div class="container">
+  <div style="text-align: center; margin: 5%;">
+    <h1>Lista de Quantity</h1>
+  </div>
+  <div class="card-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <mat-card *ngFor="let element of datasource.data" class="card" style="width: 300px; box-shadow: 0px 2px 5px rgba(0,0,0,0.2);">
+      <mat-card-content>
+        <mat-card-title>ID: {{ element.idQuantity }}</mat-card-title>
+        <p><strong>Cantidad:</strong> {{ element.quantityQuantity }}</p>
+        <p><strong>Nombre de la medicina:</strong> {{ element.medicine.nameMedicine }}</p>
+        <p><strong>Nombre de la comida:</strong> {{ element.food.nameFood }}</p>
+        <p><strong>Nombre del ejercicio:</strong> {{ element.exercise.nameExercise }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
